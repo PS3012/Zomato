@@ -36,7 +36,7 @@ const handleUserRegister = async (req, res) => {
       mobile,
       isEmailVerified: true,
       password: hashedPassword,
-      gender: req.body.gender ?? "",
+      gender: req.body.gender ?? "male",
     });
 
     await newUser.save();
