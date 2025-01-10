@@ -1,8 +1,19 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
+     const [searchTerm, setSearchTerm] = useState('')
+     const navigate = useNavigate()
+
+     const handleSearch = (e) => {
+          e.preventDefault()
+          if (searchTerm.trim()) {
+               navigate(`/restaurants/${searchTerm.toLowerCase().replace(/\s+/g, '-')}`)
+          }
+     }
+
      return (
           <>
-
                <div
                     className="relative bg-cover bg-center h-[500px]"
                     style={{ backgroundImage: 'url(/images/banner.avif)' }}
@@ -11,14 +22,16 @@ function Home() {
                          <h1 className="text-5xl font-semibold mb-6 text-center">
                               Discover the best food & drinks
                          </h1>
-                         <div className="flex bg-white text-gray-700 rounded overflow-hidden">
+                         <form onSubmit={handleSearch} className="flex bg-white text-gray-700 rounded overflow-hidden">
                               <input
                                    type="text"
+                                   value={searchTerm}
+                                   onChange={(e) => setSearchTerm(e.target.value)}
                                    placeholder="Search for location, restaurant, cuisine or a dish"
                                    className="px-4 py-2 w-96 outline-none"
                               />
-                              <button className="px-6 bg-red-500 text-white">Search</button>
-                         </div>
+                              <button type="submit" className="px-6 bg-red-500 text-white">Search</button>
+                         </form>
                     </div>
                </div>
 
@@ -31,7 +44,6 @@ function Home() {
                          </div>
                     </div>
                </div>
-
           </>
      )
 }

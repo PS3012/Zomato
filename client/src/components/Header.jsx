@@ -19,7 +19,7 @@ function Header() {
                          <nav className="space-x-4">
                               {isAuthenticated ?
                                    <>
-                                        <Link to="/login" className=" text-sm font-semibold text-gray-900">Add Restaurant</Link>
+                                        <Link to="/add-restaurant" className=" text-sm font-semibold text-gray-900">Add Restaurant</Link>
                                         <div className="relative inline-block text-left">
                                              <div>
                                                   <button onClick={() => setVisible(!visible)} type="button" className="inline-flex w-full justify-center gap-x-1.5 text-sm font-semibold text-gray-900">

@@ -10,6 +10,8 @@ import Login from './pages/Login'
 import VerifyMail from './pages/VerifyMail';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+import AddRestaurant from './pages/AddRestaurant';
+import RestaurantList from './pages/RestaurantList';
 
 function App() {
   const dispatch = useDispatch()
@@ -23,6 +25,8 @@ function App() {
         <Route path="/verify-email" element={<VerifyMail />} />
         <Route path="" element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/add-restaurant" element={<AddRestaurant />} />
+          <Route path="/restaurants/:location" element={<RestaurantList />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
